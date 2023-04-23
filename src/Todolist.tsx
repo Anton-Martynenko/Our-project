@@ -11,9 +11,15 @@ export const Todolist = () => {
         <div>
             <h3>Polina's job</h3>
             <ul>
-                <li>{tasks[0].title}</li><input type='checkbox'/>
-                <li>{tasks[1].title}</li><input type='checkbox'/>
-                <li>{tasks[2].title}</li><input type='checkbox'/>
+                {tasks.map(t => {
+                    return (
+                        <li key={t.id} title={t.title} className={t.isDone ? "is-done" : ''}>
+                            <input type="checkbox"/>
+                            <span>{t.title}</span>
+                        </li>
+                    )
+                })
+                }
             </ul>
         </div>
     );
